@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>In-Car Touchscreen Fitts' Law Experiment</title>
   
-  <!-- 引入 MathJax 以在網頁上完美渲染 LaTeX 數學公式 -->
+  <!-- 引入 MathJax 渲染數學公式 -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -33,77 +33,12 @@
       text-decoration: underline;
     }
 
-    /* 實驗測試畫布區塊 */
-    #status {
-      text-align: center;
-      font-size: 18px;
-      color: #bbb;
-      margin-bottom: 10px;
-    }
-    #canvas-container {
-      position: relative;
-      width: 800px;
-      height: 480px;
-      margin: 15px auto;
-      background: #242526;
-      border-radius: 12px;
-      border: 2px solid #3a3b3c;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-    }
-    .target {
-      position: absolute;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 14px;
-      user-select: none;
-      transition: transform 0.05s;
-    }
-    #start-btn {
-      background: #2e7d32;
-      color: white;
-      border: 2px solid #fff;
-    }
-    #target-btn {
-      background: #d32f2f;
-      color: white;
-      border: 2px solid #fff;
-      display: none;
-    }
-    .target:active {
-      transform: scale(0.95);
-    }
-    #controls {
-      text-align: center;
-      margin: 20px 0 35px 0;
-    }
-    button.export-btn {
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      background: #1976d2;
-      color: white;
-      transition: background 0.2s;
-    }
-    button.export-btn:disabled {
-      background: #444;
-      color: #888;
-      cursor: not-allowed;
-    }
-
-    /* 報告區塊排版 */
+    /* 報告區塊樣式 */
     .report-card {
       background: #1e1e1e;
       border-radius: 12px;
       padding: 35px;
-      margin-top: 30px;
+      margin-top: 15px;
       border: 1px solid #333;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       text-align: left;
@@ -169,25 +104,109 @@
     li {
       margin-bottom: 8px;
     }
+
+    /* 底部互動測試（收合面板）樣式 */
+    details.interactive-section {
+      background: #1e1e1e;
+      border: 2px solid #1976d2;
+      border-radius: 12px;
+      margin-top: 35px;
+      padding: 15px 20px;
+      transition: all 0.3s ease;
+    }
+    details.interactive-section[open] {
+      padding: 20px;
+    }
+    summary.interactive-toggle {
+      font-size: 18px;
+      font-weight: bold;
+      color: #90caf9;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      outline: none;
+      user-select: none;
+    }
+    summary.interactive-toggle::-webkit-details-marker {
+      display: none;
+    }
+    summary.interactive-toggle:hover {
+      color: #bbdefb;
+    }
+
+    /* 測試畫布本體 */
+    #status {
+      text-align: center;
+      font-size: 17px;
+      color: #bbb;
+      margin: 15px 0 10px 0;
+    }
+    #canvas-container {
+      position: relative;
+      width: 800px;
+      height: 480px;
+      margin: 15px auto;
+      background: #242526;
+      border-radius: 12px;
+      border: 2px solid #3a3b3c;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    }
+    .target {
+      position: absolute;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      user-select: none;
+      transition: transform 0.05s;
+    }
+    #start-btn {
+      background: #2e7d32;
+      color: white;
+      border: 2px solid #fff;
+    }
+    #target-btn {
+      background: #d32f2f;
+      color: white;
+      border: 2px solid #fff;
+      display: none;
+    }
+    .target:active {
+      transform: scale(0.95);
+    }
+    #controls {
+      text-align: center;
+      margin: 20px 0 10px 0;
+    }
+    button.export-btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #1976d2;
+      color: white;
+      transition: background 0.2s;
+    }
+    button.export-btn:disabled {
+      background: #444;
+      color: #888;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- 互動實驗畫布 -->
-  <h2 style="text-align: center; margin-top: 10px;">Interactive Experiment Canvas</h2>
-  <p id="status">Click the GREEN START button to begin trial (1/135)</p>
 
-  <div id="canvas-container">
-    <div id="start-btn" class="target">START</div>
-    <div id="target-btn" class="target">A/C</div>
-  </div>
-
-  <div id="controls">
-    <button class="export-btn" id="export-btn" onclick="exportCSV()" disabled>Export Averaged Results (CSV)</button>
-  </div>
-
-  <!-- 報告完整內容展示區塊 -->
+  <!-- 1. 上半部：專案報告與分析內容 -->
   <div class="report-card">
     <h1>In-Car Touchscreen Fitts' Law Experiment</h1>
 
@@ -259,9 +278,32 @@
     <p>Download the standalone test file here:</p>
     <p>📥 <a href="https://github.com/user-attachments/files/32462786/test.html" target="_blank">Download test.html</a></p>
   </div>
+
+  <!-- 2. 下半部：即時互動測試區塊（預設收合，點擊展開測試） -->
+  <details class="interactive-section">
+    <summary class="interactive-toggle">
+      <span>▶️ Click to Launch Interactive Experiment Canvas (135 Trials)</span>
+      <span style="font-size: 13px; color: #aaa;">[ Click to Expand / Collapse ]</span>
+    </summary>
+
+    <div style="margin-top: 15px;">
+      <p id="status">Click the GREEN START button to begin trial (1/135)</p>
+
+      <div id="canvas-container">
+        <div id="start-btn" class="target">START</div>
+        <div id="target-btn" class="target">A/C</div>
+      </div>
+
+      <div id="controls">
+        <button class="export-btn" id="export-btn" onclick="exportCSV()" disabled>Export Averaged Results (CSV)</button>
+      </div>
+    </div>
+  </details>
+
+  <div style="height: 40px;"></div>
 </div>
 
-<!-- 實驗邏輯 JS 程式碼 -->
+<!-- 實驗邏輯 JS 腳本 -->
 <script>
   const distances = [150, 250, 350, 450, 550, 650];
   const widths = [30, 45, 60, 75, 90];
