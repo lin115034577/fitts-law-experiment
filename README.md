@@ -1,3 +1,4 @@
+[Uploading test.html…]()
 # fitts-law-experiment
 
 # In-Car Touchscreen Fitts' Law Experiment
@@ -34,9 +35,8 @@ This interactive web experiment was rapidly prototyped using Generative AI as a 
 Watch the full experimental trials execution recording:
 
 
-<video src="./fitts_law_experiment_part2.mp4" controls="controls" style="max-width: 100%; height: auto;">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/7f9baa2b-950b-4676-b461-9bdde0819627
+
 
 *( `https://drive.google.com/file/d/1vlkkkTxT0BLXN7rbhPn_b99hfY56Us-x/view?usp=drive_link`)*
 
