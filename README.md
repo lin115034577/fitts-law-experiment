@@ -33,9 +33,12 @@ This interactive web experiment was rapidly prototyped using Generative AI as a 
 
 Watch the full experimental trials execution recording:
 
-[![Watch Experiment Recording](https://img.shields.io/badge/YouTube-Watch%20Experiment-red?style=for-the-badge&logo=youtube)](YOUR_YOUTUBE_OR_DRIVE_VIDEO_LINK_HERE)
 
-*(Alternatively, embed video or view at: `YOUR_YOUTUBE_OR_DRIVE_VIDEO_LINK_HERE`)*
+<video src="./Fitts Law Experiment part II.mp4" controls="controls" style="max-width: 100%; height: auto;">
+  Your browser does not support the video tag.
+</video>
+
+*( `https://drive.google.com/file/d/1vlkkkTxT0BLXN7rbhPn_b99hfY56Us-x/view?usp=drive_link`)*
 
 ---
 
