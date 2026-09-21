@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>In-Car Infotainment Fitts' Law Test</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin: 0; padding: 15px; background: #1a1a1a; color: #fff; }
+    #canvas-container { position: relative; width: 800px; height: 500px; margin: 10px auto; background: #2b2b2b; border-radius: 12px; border: 2px solid #444; overflow: hidden; }
+    .target { position: absolute; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; user-select: none; transition: transform 0.05s; }
+    #start-btn { background: #4CAF50; color: white; border: 2px solid #fff; }
+    #target-btn { background: #FF5722; color: white; border: 2px solid #fff; display: none; }
+    .target:active { transform: scale(0.95); }
+    #controls { margin-top: 15px; }
+    button.export-btn { padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 6px; border: none; cursor: pointer; background: #2196F3; color: white; }
+    #status { margin: 10px; font-size: 16px; color: #bbb; }
+  </style>
+</head>
+<body>
+
+  <h2>In-Car Touchscreen Pointing Experiment (Fitts' Law)</h2>
+  <p id="status">Click the GREEN START button to begin trial (1/30)</p>
+
+  <div id="canvas-container">
+    <div id="start-btn" class="target">START</div>
+    <div id="target-btn" class="target">A/C</div>
+  </div>
+
+  <div id="controls">
+    <button class="export-btn" id="export-btn" onclick="exportCSV()" disabled>Export Results to CSV</button>
+  </div>
+
+  <script>
+    // 預先設定的實驗參數：不同的距離 (A) 與寬度 (W)
+    const conditions = [
+      { A: 200, W: 40 }, { A: 200, W: 70 }, { A: 200, W: 100 },
+      { A: 400, W: 40 }, { A: 400, W: 70 }, { A: 400, W: 100 },
+      { A: 600, W: 40 }, { A: 600, W: 70 }, { A: 600, W: 100 }
+    ];
+
+    let trials = [];
+    // 每個條件重複測試 3-4 次，共約 27-36 筆
+    conditions.forEach((c) => {
+      for(let i=0; i<3; i++) trials.push({...c});
+    });
+    // 隨機打亂測試順序
+    trials = trials.sort(() => Math.random() - 0.5);
+
+    let currentTrial = 0;
+    let startTime = 0;
+    let recordedData = [];
+
+    const startBtn = document.getElementById('start-btn');
+    const targetBtn = document.getElementById('target-btn');
+    const statusText = document.getElementById('status');
+    const exportBtn = document.getElementById('export-btn');
+
+    function positionStart() {
+      startBtn.style.width = '60px';
+      startBtn.style.height = '60px';
+      startBtn.style.left = '60px';
+      startBtn.style.top = '220px';
+      startBtn.style.display = 'flex';
+      targetBtn.style.display = 'none';
+    }
+
+    startBtn.onclick = () => {
+      startBtn.style.display = 'none';
+      const trial = trials[currentTrial];
+      
+      targetBtn.style.width = trial.W + 'px';
+      targetBtn.style.height = trial.W + 'px';
+      targetBtn.style.left = (60 + trial.A) + 'px';
+      targetBtn.style.top = (250 - trial.W / 2) + 'px';
+      targetBtn.style.display = 'flex';
+
+      startTime = performance.now(); // 精確計時器
+    };
+
+    targetBtn.onclick = () => {
+      const endTime = performance.now();
+      const mt = endTime - startTime;
+      const trial = trials[currentTrial];
+      const id = Math.log2(trial.A / trial.W + 1);
+
+      recordedData.push({
+        Trial: currentTrial + 1,
+        Distance: trial.A,
+        Width: trial.W,
+        ID: id.toFixed(3),
+        MT: mt.toFixed(1)
+      });
+
+      currentTrial++;
+      if (currentTrial < trials.length) {
+        statusText.innerText = `Trial ${currentTrial + 1} of ${trials.length}`;
+        positionStart();
+      } else {
+        statusText.innerText = "Experiment Completed! Please export your data below.";
+        targetBtn.style.display = 'none';
+        exportBtn.disabled = false;
+      }
+    };
+
+    function exportCSV() {
+      let csvContent = "data:text/csv;charset=utf-8,Trial,Distance,Width,ID,MT\n";
+      recordedData.forEach(row => {
+        csvContent += `${row.Trial},${row.Distance},${row.Width},${row.ID},${row.MT}\n`;
+      });
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "custom_fitts_law_data.csv");
+      document.body.appendChild(link);
+      link.click();
+    }
+
+    // 初始化
+    positionStart();
+  </script>
+</body>
+</html>
