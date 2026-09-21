@@ -1,4 +1,3 @@
-[Uploading test.html…]()
 # fitts-law-experiment
 
 # In-Car Touchscreen Fitts' Law Experiment
@@ -75,7 +74,8 @@ $$MT = a + b \log_2\left(\frac{A}{W} + 1\right)$$
 
 ## 6. How to Run Locally
 
-1. Clone or download this repository:
+download this repository:
    ```bash
-   git clone [https://github.com/](https://github.com/)[你的GitHub帳號]/[你的Repo名稱].git
+   git clone [https://github.com/](https://github.com/)[lin115034577]/fitts-law-experiment.git
+[test.html](https://github.com/user-attachments/files/32462786/test.html)
 
