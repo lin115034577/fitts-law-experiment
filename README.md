@@ -34,7 +34,7 @@ This interactive web experiment was rapidly prototyped using Generative AI as a 
 Watch the full experimental trials execution recording:
 
 
-<video src="./Fitts Law Experiment part II.mp4" controls="controls" style="max-width: 100%; height: auto;">
+<video src="./fitts_law_experiment_part2.mp4" controls="controls" style="max-width: 100%; height: auto;">
   Your browser does not support the video tag.
 </video>
 
