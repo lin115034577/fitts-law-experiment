@@ -13,64 +13,67 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-      background-color: #121212;
-      color: #e0e0e0;
-      line-height: 1.6;
+      padding: 24px;
+      background-color: #f8f9fa;
+      color: #212529;
+      line-height: 1.65;
     }
     .container {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
     }
     h1, h2, h3 {
-      color: #ffffff;
+      color: #111827;
     }
     a {
-      color: #64b5f6;
+      color: #0d6efd;
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
 
-    /* 報告區塊樣式 */
+    /* 報告區塊白色卡片風格 */
     .report-card {
-      background: #1e1e1e;
+      background: #ffffff;
       border-radius: 12px;
-      padding: 35px;
+      padding: 36px 40px;
       margin-top: 15px;
-      border: 1px solid #333;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
       text-align: left;
     }
     .report-card h1 {
       font-size: 26px;
-      border-bottom: 2px solid #1976d2;
+      border-bottom: 2px solid #0d6efd;
       padding-bottom: 12px;
       margin-top: 0;
     }
     .report-card h2 {
       font-size: 20px;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #e5e7eb;
       padding-bottom: 8px;
-      margin-top: 30px;
-      color: #90caf9;
+      margin-top: 32px;
+      color: #1e3a8a;
     }
     .report-card blockquote {
-      margin: 15px 0;
-      padding: 12px 20px;
-      background-color: #262626;
-      border-left: 4px solid #1976d2;
-      border-radius: 4px;
-      color: #cfd8dc;
+      margin: 18px 0;
+      padding: 14px 20px;
+      background-color: #f0f7ff;
+      border-left: 4px solid #0d6efd;
+      border-radius: 6px;
+      color: #1e293b;
     }
     .formula-box {
-      background: #141414;
-      padding: 18px;
-      border-left: 4px solid #4caf50;
+      background: #f0fdf4;
+      padding: 18px 22px;
+      border-left: 4px solid #16a34a;
       border-radius: 6px;
-      margin: 18px 0;
+      margin: 20px 0;
       font-size: 16px;
+      color: #14532d;
+      border: 1px solid #dcfce7;
+      border-left-width: 4px;
     }
     .video-container {
       text-align: center;
@@ -80,8 +83,9 @@
       width: 100%;
       max-width: 800px;
       border-radius: 8px;
-      border: 1px solid #444;
+      border: 1px solid #d1d5db;
       background: #000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
     .chart-container {
       text-align: center;
@@ -91,36 +95,38 @@
       width: 100%;
       max-width: 800px;
       border-radius: 8px;
-      border: 1px solid #444;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
     .figure-caption {
-      color: #aaa;
+      color: #6b7280;
       font-size: 14px;
       margin-top: 8px;
     }
     ul {
-      padding-left: 25px;
+      padding-left: 24px;
     }
     li {
       margin-bottom: 8px;
     }
 
-    /* 底部互動測試（收合面板）樣式 */
+    /* 底部收合面板樣式 */
     details.interactive-section {
-      background: #1e1e1e;
-      border: 2px solid #1976d2;
+      background: #ffffff;
+      border: 2px solid #0d6efd;
       border-radius: 12px;
       margin-top: 35px;
-      padding: 15px 20px;
+      padding: 16px 22px;
+      box-shadow: 0 4px 12px rgba(13, 110, 253, 0.08);
       transition: all 0.3s ease;
     }
     details.interactive-section[open] {
-      padding: 20px;
+      padding: 22px;
     }
     summary.interactive-toggle {
       font-size: 18px;
       font-weight: bold;
-      color: #90caf9;
+      color: #0d6efd;
       cursor: pointer;
       list-style: none;
       display: flex;
@@ -133,26 +139,27 @@
       display: none;
     }
     summary.interactive-toggle:hover {
-      color: #bbdefb;
+      color: #0b5ed7;
     }
 
-    /* 測試畫布本體 */
+    /* 實驗測試畫布 */
     #status {
       text-align: center;
       font-size: 17px;
-      color: #bbb;
+      color: #4b5563;
       margin: 15px 0 10px 0;
+      font-weight: 500;
     }
     #canvas-container {
       position: relative;
       width: 800px;
       height: 480px;
       margin: 15px auto;
-      background: #242526;
+      background: #f1f5f9;
       border-radius: 12px;
-      border: 2px solid #3a3b3c;
+      border: 2px solid #cbd5e1;
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
     }
     .target {
       position: absolute;
@@ -167,14 +174,16 @@
       transition: transform 0.05s;
     }
     #start-btn {
-      background: #2e7d32;
+      background: #16a34a;
       color: white;
-      border: 2px solid #fff;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(22, 163, 74, 0.4);
     }
     #target-btn {
-      background: #d32f2f;
+      background: #dc2626;
       color: white;
-      border: 2px solid #fff;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(220, 38, 38, 0.4);
       display: none;
     }
     .target:active {
@@ -191,14 +200,19 @@
       border-radius: 8px;
       border: none;
       cursor: pointer;
-      background: #1976d2;
+      background: #0d6efd;
       color: white;
-      transition: background 0.2s;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(13, 110, 253, 0.25);
+    }
+    button.export-btn:hover:not(:disabled) {
+      background: #0b5ed7;
     }
     button.export-btn:disabled {
-      background: #444;
-      color: #888;
+      background: #cbd5e1;
+      color: #94a3b8;
       cursor: not-allowed;
+      box-shadow: none;
     }
   </style>
 </head>
@@ -217,24 +231,24 @@
     </blockquote>
 
     <h2>1. Scenario & Real-World HCI Problem</h2>
-    <p>In modern vehicle interface design, physical rotary knobs and toggles are frequently replaced by capacitive center-console touchscreens.</p>
+    <p>In modern vehicle interface design, physical rotary knobs and toggles are frequently replaced by capacitive center-console touchscreens[cite: 6].</p>
     <ul>
-      <li><strong>Context:</strong> A driver navigating traffic must maintain primary visual attention on road conditions, affording only split-second peripheral glances to adjust in-cabin controls (such as climate control / AC temperature).</li>
-      <li><strong>HCI Problem:</strong> If touch targets on the infotainment display are too small or located far from the driver's natural reach (high Index of Difficulty, ID), target acquisition time (Movement Time, MT) increases substantially. This prolongs off-road glance durations, introducing severe driving hazards.</li>
-      <li><strong>Objective:</strong> This experiment applies the Shannon formulation of Fitts' Law to model and evaluate rapid pointing performance across varying target distances and button dimensions, informing safer in-car UI layouts.</li>
+      <li><strong>Context:</strong> A driver navigating traffic must maintain primary visual attention on road conditions, affording only split-second peripheral glances to adjust in-cabin controls (such as climate control / AC temperature)[cite: 6].</li>
+      <li><strong>HCI Problem:</strong> If touch targets on the infotainment display are too small or located far from the driver's natural reach (high Index of Difficulty, ID), target acquisition time (Movement Time, MT) increases substantially[cite: 1, 6]. This prolongs off-road glance durations, introducing severe driving hazards[cite: 6].</li>
+      <li><strong>Objective:</strong> This experiment applies the Fitts' Law to model and evaluate rapid pointing performance across varying target distances and button dimensions, informing safer in-car UI layouts[cite: 6].</li>
     </ul>
 
     <h2>2. Innovation & Experimental Design</h2>
-    <p>This interactive web experiment was rapidly prototyped using Generative AI as a design partner.</p>
+    <p>This interactive web experiment was rapidly prototyped using Generative AI as a design partner[cite: 6].</p>
     <ul>
-      <li><strong>Target Variations:</strong> Systematically combines 6 distinct travel distances (\(A \in \{150, 250, 350, 450, 550, 650\}\text{ px}\)) and 5 target diameters (\(W \in \{30, 45, 60, 75, 90\}\text{ px}\)), producing <strong>27 unique experimental conditions</strong>.</li>
-      <li><strong>Statistical Rigor:</strong> Each condition is repeated <strong>5 times</strong> (totaling <strong>135 randomized trials</strong>) to mitigate motor impulse variability, fatigue, and anomalous clicks.</li>
-      <li><strong>Precision Timing:</strong> Built with the high-resolution <code>performance.now()</code> API to capture sub-millisecond pointing latencies.</li>
-      <li><strong>Data Aggregation & Export:</strong> Automatically computes the mean Movement Time (\(MT\)) across repetitions for each condition and exports a standardized CSV dataset.</li>
+      <li><strong>Target Variations:</strong> Systematically combines 6 distinct travel distances (\(A \in \{150, 250, 350, 450, 550, 650\}\text{ px}\)) and 5 target diameters (\(W \in \{30, 45, 60, 75, 90\}\text{ px}\)), producing <strong>27 unique experimental conditions</strong>[cite: 6].</li>
+      <li><strong>Statistical Rigor:</strong> Each condition is repeated <strong>5 times</strong> (totaling <strong>135 randomized trials</strong>) to mitigate motor impulse variability, fatigue, and anomalous clicks[cite: 6].</li>
+      <li><strong>Precision Timing:</strong> Built with the high-resolution <code>performance.now()</code> API to capture sub-millisecond pointing latencies[cite: 6].</li>
+      <li><strong>Data Aggregation & Export:</strong> Automatically computes the mean Movement Time (\(MT\)) across repetitions for each condition and exports a standardized CSV dataset[cite: 6].</li>
     </ul>
 
     <h2>3. Screen Recording of Empirical Trials</h2>
-    <p>Watch the full experimental trials execution recording below:</p>
+    <p>Watch the full experimental trials execution recording below[cite: 6]:</p>
     <div class="video-container">
       <video controls preload="metadata">
         <source src="https://github.com/user-attachments/assets/7f9baa2b-950b-4676-b461-9bdde0819627" type="video/mp4">
@@ -247,35 +261,35 @@
 
     <h2>4. Empirical Analysis & Custom Predictive Model</h2>
     <h3>4.1 Regression Formula (Shannon Formulation)</h3>
-    <p>Linear regression was conducted using the empirical dataset:</p>
+    <p>Linear regression was conducted using the empirical dataset[cite: 6]:</p>
     <p style="text-align: center; font-size: 17px;">
       \[MT = a + b \log_2\left(\frac{A}{W} + 1\right)\]
     </p>
 
     <div class="formula-box">
-      <strong>Derived Equation:</strong> \(\mathbf{MT = 306.55 + 136.63 \times ID}\)<br><br>
-      • <strong>Baseline Non-Informational Latency (\(a\)):</strong> 306.55 ms (reflecting visual recognition and motor initiation time)<br>
-      • <strong>Slope / Reciprocal of Bandwidth (\(b\)):</strong> 136.63 ms/bit (fine-motor visual feedback adjustment speed)<br>
-      • <strong>Goodness of Fit (\(R^2\)):</strong> 0.5019 (strong empirical alignment with Fitts' Law)
+      <strong>Derived Equation:</strong> \(\mathbf{MT = 306.55 + 136.63 \times ID}\)[cite: 7]<br><br>
+      • <strong>Baseline Non-Informational Latency (\(a\)):</strong> 306.55 ms (reflecting visual recognition and motor initiation time)[cite: 7]<br>
+      • <strong>Slope / Reciprocal of Bandwidth (\(b\)):</strong> 136.63 ms/bit (fine-motor visual feedback adjustment speed)[cite: 7]<br>
+      • <strong>Goodness of Fit (\(R^2\)):</strong> 0.5019 (strong empirical alignment with Fitts' Law)[cite: 7]
     </div>
 
     <h3>4.2 Scatter Plot & Fitted Trendline</h3>
     <div class="chart-container">
       <img src="https://github.com/user-attachments/assets/30283efd-38b9-4de3-805c-dea2f3f30574" alt="Linear Regression Scatter Plot">
-      <div class="figure-caption"><strong>Figure 1:</strong> Linear regression scatter plot of the custom in-car touchscreen pointing experiment mapping Index of Difficulty (ID, bits) to Movement Time (MT, ms).</div>
+      <div class="figure-caption"><strong>Figure 1:</strong> Linear regression scatter plot of the custom in-car touchscreen pointing experiment mapping Index of Difficulty (ID, bits) to Movement Time (MT, ms)[cite: 6, 7].</div>
     </div>
 
     <h2>5. Discussion & Empirical Findings</h2>
-    <p>The empirical results exhibit strong physiological validity despite a moderate goodness-of-fit (\(R^2 = 0.5019\)):</p>
+    <p>The empirical results exhibit strong physiological validity despite a moderate goodness-of-fit (\(R^2 = 0.5019\))[cite: 7]:</p>
     <ul>
-      <li><strong>Baseline Latency (\(a = 306.55\text{ ms}\)):</strong> The derived intercept aligns well with human neuromotor limits, encompassing visual perception (~200 ms), cognitive movement planning, and physical click execution.</li>
-      <li><strong>Movement Efficiency (\(b = 136.63\text{ ms/bit}\)):</strong> The positive slope (\(b > 0\)) confirms the fundamental premise of Fitts' Law—higher task difficulty systematically demands greater movement time for visual feedback corrections.</li>
-      <li><strong>Variance & Outliers at High Difficulty:</strong> Unlike simplified benchmarks with fewer conditions, our experiment introduced 27 randomized parameter permutations across 135 trials. At extreme difficulty levels (\(ID \approx 4.5\text{ bits}\), with \(W = 30\text{ px}\) at long distances), movement times spiked beyond 1200 ms due to severe overshooting and secondary corrective sub-movements.</li>
-      <li><strong>Fatigue & Speed-Accuracy Trade-off:</strong> Prolonged continuous tapping introduced subtle neuromotor fatigue and attentional fluctuations, increasing data dispersion and yielding a moderate \(R^2\) that authentically mirrors real-world in-cabin touch interactions.</li>
+      <li><strong>Baseline Latency (\(a = 306.55\text{ ms}\)):</strong> The derived intercept aligns well with human neuromotor limits, encompassing visual perception (~200 ms), cognitive movement planning, and physical click execution[cite: 1, 6, 7].</li>
+      <li><strong>Movement Efficiency (\(b = 136.63\text{ ms/bit}\)):</strong> The positive slope (\(b > 0\)) confirms the fundamental premise of Fitts' Law—higher task difficulty systematically demands greater movement time for visual feedback corrections[cite: 1, 6, 7].</li>
+      <li><strong>Variance & Outliers at High Difficulty:</strong> Unlike simplified benchmarks with fewer conditions, our experiment introduced 27 randomized parameter permutations across 135 trials[cite: 6, 7]. At extreme difficulty levels (\(ID \approx 4.5\text{ bits}\), with \(W = 30\text{ px}\) at long distances), movement times spiked beyond 1200 ms due to severe overshooting and secondary corrective sub-movements[cite: 1, 7].</li>
+      <li><strong>Fatigue & Speed-Accuracy Trade-off:</strong> Prolonged continuous tapping introduced subtle neuromotor fatigue and attentional fluctuations, increasing data dispersion and yielding a moderate \(R^2\) that authentically mirrors real-world in-cabin touch interactions[cite: 1, 6, 7].</li>
     </ul>
 
     <h2>6. How to Run Experiment Locally</h2>
-    <p>Download the standalone test file here:</p>
+    <p>Download the standalone test file here[cite: 6]:</p>
     <p>📥 <a href="https://github.com/user-attachments/files/32462786/test.html" target="_blank">Download test.html</a></p>
   </div>
 
@@ -283,7 +297,7 @@
   <details class="interactive-section">
     <summary class="interactive-toggle">
       <span>▶️ Click to Launch Interactive Experiment Canvas (135 Trials)</span>
-      <span style="font-size: 13px; color: #aaa;">[ Click to Expand / Collapse ]</span>
+      <span style="font-size: 13px; color: #6b7280;">[ Click to Expand / Collapse ]</span>
     </summary>
 
     <div style="margin-top: 15px;">
